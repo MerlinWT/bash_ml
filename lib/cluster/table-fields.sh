@@ -9,6 +9,6 @@ ${INIT[bin]}ml.sh pass copy ${1} ${2};
 mkdir -p /tmp/ml/;
 tmp="/tmp/ml/${1}${2}${3}.tmp";
 
-${INIT[bin]}ml.sh cluster sql-exec root db 0 'show fields from user_banner;' > ${tmp};
+${INIT[bin]}ml.sh cluster sql-exec ${1} ${2} ${3} "show fields from ${4};" > ${tmp};
 tail -n +2 ${tmp} | awk '{ print $1 }' | tr '\n' ' ';
 rm -f ${tmp};
