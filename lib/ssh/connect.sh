@@ -8,5 +8,11 @@ ${INIT[bin]}ml.sh pass copy ${1} ${2};
 
 #echo ${@:4};
 
-ssh ${1}@${2}${3}.hpmdnetwork.ru "${@:4}";
+if [ ${3} = '-' ]; then
+ num='';
+else
+ num=${3};
+fi;
+
+ssh ${1}@${2}${num}.hpmdnetwork.ru "${@:4}";
 
