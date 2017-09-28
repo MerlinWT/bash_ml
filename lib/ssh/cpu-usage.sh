@@ -10,4 +10,4 @@
 
 #echo ${cpu_info};
 
-${INIT[bin]}ml.sh ssh connect ${1} ${2} ${3} "uptime | awk '{ print \$10 }' | head -c-2"
+${INIT[bin]}ml.sh ssh connect ${1} ${2} ${3} "uptime | awk -F 'load average: ' '{ print \$2 }' | awk '{ print \$1 }' | head -c-2"
