@@ -10,7 +10,15 @@ INIT[parts]=${root}parts/;
 
 declare -A CLUSTER;
 
-CLUSTER[shard]="0 1 2 3 4 5";
-CLUSTER[config]="0 1 2";
+CLUSTER[cms]=-
+CLUSTER[stat]=-
+CLUSTER[www]=-
+CLUSTER[banner]=$(for i in {0..2}; do echo -n "${i} "; done;)
+CLUSTER[worker]=$(for i in {0..42}; do echo -n "${i} "; done;)
+CLUSTER[php]=$(for i in {0..4}; do echo -n "${i} "; done;)
+CLUSTER[db]=$(for i in {0..12}; do echo -n "${i} "; done;)
+#mongo
+CLUSTER[shard]=$(for i in {0..5}; do echo -n "${i} "; done;);
+CLUSTER[config]=$(for i in {0..2}; do echo -n "${i} "; done;)
 
-. ${INIT[bin]}autoload.sh ${INIT[etc]} ${INIT[parts]}
+#. ${INIT[bin]}autoload.sh ${INIT[etc]} ${INIT[parts]}

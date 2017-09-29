@@ -4,10 +4,5 @@
 . /root/bash/bin/init.sh
 . ${INIT[parts]}usage.sh "" ${1}
 #
-for i in ${CLUSTER[${2}]}; do
-  echo -n " -- ${i} : ";
-  ${INIT[bin]}ml.sh ssh service-status ${1} ${2} ${i} mongod; 
-  echo -n " ";
-done;
-echo "";
+${INIT[bin]}ml.sh cluster ssh-command ${1} ${2} service-status mongod;
 
