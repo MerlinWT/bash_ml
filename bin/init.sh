@@ -21,4 +21,9 @@ CLUSTER[db]=$(for i in {0..12}; do echo -n "${i} "; done;)
 CLUSTER[shard]=$(for i in {0..5}; do echo -n "${i} "; done;);
 CLUSTER[config]=$(for i in {0..2}; do echo -n "${i} "; done;)
 
+declare -A SHORTCUT;
+
+SHORTCUT[cms]="${INIT[bin]}ml.sh ssh connect root cms -";
+SHORTCUT[loader]="${INIT[bin]}ml.sh ssh connect root loader -";
+
 #. ${INIT[bin]}autoload.sh ${INIT[etc]} ${INIT[parts]}
