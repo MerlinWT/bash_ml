@@ -23,7 +23,22 @@ CLUSTER[config]=$(for i in {0..2}; do echo -n "${i} "; done;)
 
 declare -A SHORTCUT;
 
-SHORTCUT[cms]="${INIT[bin]}ml.sh ssh connect root cms -";
-SHORTCUT[loader]="${INIT[bin]}ml.sh ssh connect root loader -";
+ml=${INIT[bin]}ml.sh;
+
+SHURTCUT[edit]="nano ~/bash/bin/init.sh";
+SHORTCUT[cms]="${ml} ssh connect root cms -";
+SHORTCUT[cms-dev]="${ml} ssh connect root cms-dev -";
+SHORTCUT[loader]="${ml} ssh connect root loader -";
+SHORTCUT[wh]="${ml} wifi home up";
+#hpmd
+SHORTCUT[sync-php]="${ml} hpmd sync php";
+SHORTCUT[sync-banner]="${ml} hpmd sync banner";
+
+#applications
+SHORTCUT[phpstorm]="sh /usr/lib/PhpStorm-171.4694.2/bin/phpstorm.sh";
+SHOTCUT[chrome]="su kov;google-chrome &;exit;";
+
+#mini-scripts
+SHORTCUT[restore]="${ml} cluster restore-local do;";
 
 #. ${INIT[bin]}autoload.sh ${INIT[etc]} ${INIT[parts]}

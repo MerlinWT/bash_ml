@@ -6,4 +6,11 @@
 #
 ${INIT[bin]}ml.sh pass get ${1} ${2} | xclip -selection clipboard;
 
-scp ${1}@${2}${3}.hpmdnetwork.ru:${4} ${5};
+
+if [ ${3} = '-' ]; then
+ num='';
+else
+ num=${3};
+fi;
+
+scp ${1}@${2}${num}.hpmdnetwork.ru:${4} ${5};
